@@ -31,3 +31,5 @@ contract StorageFactory {
         return listOfSimpleStorageContracts[_simpleStorageIndex].retrieve();
     }
 }
+
+//test
