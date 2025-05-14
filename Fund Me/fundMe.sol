@@ -7,9 +7,13 @@ contract FundMe{
     
     uint256 public minimumUSD = 5e18;
 
+    address[] public funders;
+    mapping(address => uint256) public addressToAmountFunded;
+
     function fund() public payable {
 
         require(convert(msg.value) >= minimumUSD, "didn't send enough ETH");
+        addressToAmountFunded[msg.sender] = addressToAmountFunded[msg.sender] + msg.value;
     }
 
     function getPrice() public view returns(uint256){
